@@ -81,6 +81,7 @@ public class SeamCarver {
             this.row = row;
             this.column = column;
             this.energy = energy;
+            adj = new ArrayList<Pixel>();
         }
 
         @Override
@@ -111,47 +112,44 @@ public class SeamCarver {
 
         private void buildAdjList() {
             //set adj list and calculate distances from parent to each adj child
-            for (int row = 0; row < picture.height(); row++) {
+            for (int row = picture.height() - 1; row > 0; row--) {
                 for (int column = 0; column < picture.width(); column++) {
 //                System.out.printf("row: %d column: %d \n", row, column);
                     Pixel pixel = energyMatrix[row][column];
-                    List<Pixel> adjs = new ArrayList<Pixel>();
+                    List<Pixel> adjs = pixel.adj;
 
-                    if (row < picture.height() - 1) {
-                        Pixel originalPixel = energyMatrix[row + 1][column];
+                    //adjacent left
+                    if (column > 0 && row > 0) {
+                        Pixel originalPixel = energyMatrix[row - 1][column - 1];
                         Pixel tmp = new Pixel(originalPixel.row, originalPixel.column, originalPixel.energy);
                         tmp.distanceFromParent = pixel.energy + tmp.energy;
                         adjs.add(tmp);
                     }
 
-                    if (column < picture.width() - 1 && row < picture.height() - 1) {
-                        Pixel originalPixel = energyMatrix[row + 1][column + 1];
+                    //adjacent
+                    if (row > 0) {
+                        Pixel originalPixel = energyMatrix[row - 1][column];
                         Pixel tmp = new Pixel(originalPixel.row, originalPixel.column, originalPixel.energy);
                         tmp.distanceFromParent = pixel.energy + tmp.energy;
                         adjs.add(tmp);
                     }
 
-                    if (column > 0 && row < picture.height() - 1) {
-                        Pixel originalPixel = energyMatrix[row + 1][column - 1];
+                    //adjacent right
+                    if (column < picture.width() - 1 && row > 0) {
+                        Pixel originalPixel = energyMatrix[row - 1][column + 1];
                         Pixel tmp = new Pixel(originalPixel.row, originalPixel.column, originalPixel.energy);
                         tmp.distanceFromParent = pixel.energy + tmp.energy;
                         adjs.add(tmp);
                     }
 
-                    pixel.adj = adjs;
-
-//                System.out.printf("(%d,%d) energy: %f - children %s", row, column, energyMatrix[row][column].energy, adjs.toString());
+//                System.out.printf("(%d,%d) energy: %f - adj %s", row, column, energyMatrix[row][column].energy, adjs.toString());
                 }
             }
-
-            /*for (int row = 0; row < picture.height(); row++) {
-                for (int column = 0; column < picture.width(); column++) {
-                    System.out.println(energyMatrix[row][column]);
-                }
-            }*/
         }
 
-        private void findShortestPath() {
+        private int[] findShortestPath() {
+            int[] results = new int[picture.height()];
+            int index = 0;
 
             java.util.Stack<Pixel> currentPath = new Stack<Pixel>(); //TODO: Replace with class data structure
             Pixel[] firstRowPixels = energyMatrix[picture.height() - 1];
@@ -161,17 +159,17 @@ public class SeamCarver {
                 for (Pixel adjPixel : rowPixel.adj) {
                     if ((rowPixel.energy + adjPixel.energy) < pixelAdjShortestPath) {
                         pixelAdjShortestPath = rowPixel.energy + adjPixel.energy;
-                        System.out.printf("(%d,%d) - shortestPath = %f\n", rowPixel.row, rowPixel.column, pixelAdjShortestPath);
+//                        System.out.printf("(%d,%d) - shortestPath = %f\n", rowPixel.row, rowPixel.column, pixelAdjShortestPath);
                     }
                 }
                 if (pixelAdjShortestPath < rowSmallestPathTotal) {
-                    System.out.printf("(%d,%d) - short:%f < total:%f\n", rowPixel.row, rowPixel.column, pixelAdjShortestPath, rowSmallestPathTotal);
+//                    System.out.printf("(%d,%d) - short:%f < total:%f\n", rowPixel.row, rowPixel.column, pixelAdjShortestPath, rowSmallestPathTotal);
                     if (currentPath.size() > 0) {
-                        System.out.println("stack has the current element at the top: " + currentPath.peek());
-                        System.out.printf("popping pixel (%d, %d) off stack\n", rowPixel.row, rowPixel.column);
+//                        System.out.println("stack has the current element at the top: " + currentPath.peek());
+//                        System.out.printf("popping pixel (%d, %d) off stack\n", rowPixel.row, rowPixel.column);
                         currentPath.pop();
                     }
-                    System.out.printf("pushed pixel: (%d,%d) onto stack \n", rowPixel.row, rowPixel.column);
+//                    System.out.printf("pushed pixel: (%d,%d) onto stack \n", rowPixel.row, rowPixel.column);
                     currentPath.push(rowPixel);
                     rowSmallestPathTotal = pixelAdjShortestPath;
                 }
@@ -180,7 +178,8 @@ public class SeamCarver {
 
             while (currentPath.size() > 0) {
                 Pixel pixel = currentPath.pop();
-                System.out.printf("(%d,%d) popped from path\n", pixel.row, pixel.column);
+                results[index++] = pixel.column;
+                System.out.printf("(%d,%d) \n", pixel.row, pixel.column);
                 List<Pixel> adj = pixel.adj;
 
                 double pixelAdjShortestPath = Double.MAX_VALUE;
@@ -194,6 +193,8 @@ public class SeamCarver {
                     }
                 }
             }
+
+            return results;
         }
     }
 
@@ -213,9 +214,8 @@ public class SeamCarver {
 
         PixelSP pixelSP = new PixelSP(energyMatrix);
         pixelSP.buildAdjList();
-        pixelSP.findShortestPath();
+        return pixelSP.findShortestPath();
 
-        return new int[]{3, 2, 2, 2, 3}; //TODO: Implement this
     }
 
     // remove horizontal seam from current picture
