@@ -8,131 +8,187 @@ import java.util.*;
 
 public class PixelSP {
 
-    private final Pixel[][] pixelArray;
-    private final Picture picture;
-
-    private class Pixel implements Comparable<Pixel> {
+    private class Pixel {
         private int row;
         private int column;
         private double energy;
         private List<Pixel> adj;
-
-        private double distanceFromParent;
+        private double pathLength;
+        private int parentXCoordinate;
 
         private Pixel(int row, int column, double energy) {
             this.row = row;
             this.column = column;
             this.energy = energy;
+
             adj = new ArrayList<Pixel>();
         }
 
         @Override
-        public int compareTo(Pixel pixel) {
-            return Double.valueOf(energy).compareTo(pixel.energy);
-        }
-
-        @Override
         public String toString() {
-            return String.format("(%d, %d) erg: %f adj->%s", row, column, energy, adj != null ? adj.toString() : "Nothing");
+            return String.format("(%d, %d) energy: %f path-len:%f", row, column, energy, pathLength);
         }
 
     }
 
+    private class PixelPathLengthComparator implements Comparator<Pixel> {
+        @Override
+        public int compare(Pixel pixel, Pixel pixel2) {
+            return Double.valueOf(pixel.pathLength).compareTo(pixel2.pathLength);
+        }
+    }
+
+    private Pixel[][] pixelArray;
+    private final Picture picture;
+
+
     PixelSP(Picture picture, double[][] energyMatrix) {
         this.picture = picture;
 
-        pixelArray = new Pixel[picture.height()][picture.width()];
-        for (int row = 0; row < picture.height(); row++) {
-            for (int column = 0; column < picture.width(); column++) {
+        int height = picture.height();
+        int width = picture.width();
+
+        pixelArray = new Pixel[height][width];
+        for (int row = 0; row < height; row++) {
+            for (int column = 0; column < width; column++) {
                 pixelArray[row][column] = new Pixel(row, column, energyMatrix[row][column]);
             }
         }
     }
 
-    public void buildAdjList() {
-        //set adj list and calculate distances from parent to each adj child
-        for (int row = picture.height() - 1; row > 0; row--) {
-            for (int column = 0; column < picture.width(); column++) {
-//                System.out.printf("row: %d column: %d \n", row, column);
+    private void transposeMatrix() {
+        int height = picture.height();
+        int width = picture.width();
+
+        Pixel[][] transpose = new Pixel[width][height];
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                Pixel pixel = pixelArray[i][j];
+                pixel.row = j;
+                pixel.column = i;
+                transpose[j][i] = pixel;
+            }
+        }
+
+        pixelArray = transpose;
+    }
+
+    private void revertTransposeMatrix() {
+        int height = picture.height();
+        int width = picture.width();
+
+        Pixel[][] original = new Pixel[height][width];
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                Pixel pixel = pixelArray[i][j];
+                pixel.row = j;
+                pixel.column = i;
+                original[j][i] = pixel;
+            }
+        }
+
+        pixelArray = original;
+    }
+
+    private void buildAdjList() {
+        int height = pixelArray.length;
+        int width = pixelArray[0].length;
+
+        for (int row = 0; row < height; row++) {
+            for (int column = 0; column < width; column++) {
+                initializePixelPathLength(row, column);
+
                 Pixel pixel = pixelArray[row][column];
-                List<Pixel> adjs = pixel.adj;
-
-                //adjacent left
-                if (column > 0 && row > 0) {
-                    Pixel originalPixel = pixelArray[row - 1][column - 1];
-                    Pixel tmp = new Pixel(originalPixel.row, originalPixel.column, originalPixel.energy);
-                    tmp.distanceFromParent = pixel.energy + tmp.energy;
-                    adjs.add(tmp);
-                }
-
-                //adjacent
-                if (row > 0) {
-                    Pixel originalPixel = pixelArray[row - 1][column];
-                    Pixel tmp = new Pixel(originalPixel.row, originalPixel.column, originalPixel.energy);
-                    tmp.distanceFromParent = pixel.energy + tmp.energy;
-                    adjs.add(tmp);
-                }
-
-                //adjacent right
-                if (column < picture.width() - 1 && row > 0) {
-                    Pixel originalPixel = pixelArray[row - 1][column + 1];
-                    Pixel tmp = new Pixel(originalPixel.row, originalPixel.column, originalPixel.energy);
-                    tmp.distanceFromParent = pixel.energy + tmp.energy;
-                    adjs.add(tmp);
-                }
-
-//                System.out.printf("(%d,%d) energy: %f - adj %s", row, column, pixelArray[row][column].energy, adjs.toString());
+                List<Pixel> adjs = setPixelAdjacentPixels(height, width, row, column, pixel);
+                setAdjacentPixelsParentXCoordinate(row, pixel, adjs);
             }
         }
     }
 
-    public int[] findShortestPath() {
-        int[] results = new int[picture.height()];
-        int index = picture.height() - 1;
+    private List<Pixel> setPixelAdjacentPixels(int matrixHeight, int matrixWidth, int row, int column, Pixel pixel) {
+        List<Pixel> adjs = pixel.adj;
 
-        java.util.Stack<Pixel> currentPath = new java.util.Stack<Pixel>(); //TODO: Replace with class data structure
-        Pixel[] firstRowPixels = pixelArray[picture.height() - 1];
-        double rowSmallestPathTotal = Double.MAX_VALUE;
-        for (Pixel rowPixel : firstRowPixels) {
-            double pixelAdjShortestPath = Double.MAX_VALUE;
-            for (Pixel adjPixel : rowPixel.adj) {
-                if ((rowPixel.energy + adjPixel.energy) < pixelAdjShortestPath) {
-                    pixelAdjShortestPath = rowPixel.energy + adjPixel.energy;
-//                        System.out.printf("(%d,%d) - shortestPath = %f\n", rowPixel.row, rowPixel.column, pixelAdjShortestPath);
-                }
+        //adjacent left
+        if (column > 0 && row < matrixHeight - 1) {
+            adjs.add(pixelArray[row + 1][column - 1]);
+        }
+
+        //adjacent
+        if (row < matrixHeight - 1) {
+            adjs.add(pixelArray[row + 1][column]);
+        }
+
+        //adjacent right
+        if (column < matrixWidth - 1 && row < matrixHeight - 1) {
+            adjs.add(pixelArray[row + 1][column + 1]);
+        }
+        return adjs;
+    }
+
+    private void setAdjacentPixelsParentXCoordinate(int row, Pixel parentPixel, List<Pixel> adjacentPixels) {
+        if (row > 0) {
+            for (Pixel adj : adjacentPixels) {
+                adj.parentXCoordinate = parentPixel.column;
             }
-            if (pixelAdjShortestPath < rowSmallestPathTotal) {
-//                    System.out.printf("(%d,%d) - short:%f < total:%f\n", rowPixel.row, rowPixel.column, pixelAdjShortestPath, rowSmallestPathTotal);
-                if (currentPath.size() > 0) {
-//                        System.out.println("stack has the current element at the top: " + currentPath.peek());
-//                        System.out.printf("popping pixel (%d, %d) off stack\n", rowPixel.row, rowPixel.column);
-                    currentPath.pop();
+        }
+    }
+
+    private void initializePixelPathLength(int row, int column) {
+        if (row == 0)
+            pixelArray[row][column].pathLength = 0.0;
+        else
+            pixelArray[row][column].pathLength = Double.MAX_VALUE;
+    }
+
+    public int[] findVerticalShortestPath() {
+        int height = pixelArray.length;
+        int width = pixelArray[0].length;
+
+        buildAdjList();
+
+        for (int row = 0; row < height; row++) {
+            for (int column = 0; column < width; column++) {
+                Pixel pixel = pixelArray[row][column];
+                List<Pixel> adjPixels = pixel.adj;
+                for (Pixel adjPixel : adjPixels) {
+                    relaxPixel(pixel, adjPixel);
                 }
-//                    System.out.printf("pushed pixel: (%d,%d) onto stack \n", rowPixel.row, rowPixel.column);
-                currentPath.push(rowPixel);
-                rowSmallestPathTotal = pixelAdjShortestPath;
             }
         }
 
+        Stack<Pixel> stack = new Stack<Pixel>();
+        MinPQ<Pixel> lastRow = new MinPQ<Pixel>(new PixelPathLengthComparator());
 
-        while (currentPath.size() > 0) {
-            Pixel pixel = currentPath.pop();
-            results[index--] = pixel.column;
-            System.out.printf("(%d,%d) \n", pixel.row, pixel.column);
-            List<Pixel> adj = pixel.adj;
-
-            double pixelAdjShortestPath = Double.MAX_VALUE;
-            for (Pixel adjPixel : adj) {
-                if ((pixel.energy + adjPixel.energy) < pixelAdjShortestPath) {
-                    if (currentPath.size() > 0) {
-                        currentPath.pop();
-                    }
-                    currentPath.push(pixelArray[adjPixel.row][adjPixel.column]);
-                    pixelAdjShortestPath = pixel.energy + adjPixel.energy;
-                }
-            }
+        for (int column = 0; column < width; column++) {
+            lastRow.insert(pixelArray[height - 1][column]);
         }
 
+        Pixel currentPixel = lastRow.delMin();
+        stack.push(currentPixel);
+        for (int row = height - 2; row >= 0; row--) {
+            currentPixel = pixelArray[row][currentPixel.parentXCoordinate];
+            stack.push(currentPixel);
+        }
+
+        int[] results = new int[stack.size()];
+        int index=0;
+        for (Pixel pixel : stack) {
+            results[index++] = pixel.column;
+        }
+        return results;
+    }
+
+    private void relaxPixel(Pixel parentPixel, Pixel adjacentPixel) {
+        if (adjacentPixel.pathLength > parentPixel.pathLength + parentPixel.energy) {
+            adjacentPixel.pathLength = parentPixel.pathLength + parentPixel.energy;
+            adjacentPixel.parentXCoordinate = parentPixel.column;
+        }
+    }
+
+    public int[] findHorizontalShortestPath() {
+        transposeMatrix();
+        int[] results = findVerticalShortestPath();
+        revertTransposeMatrix();
         return results;
     }
 }
