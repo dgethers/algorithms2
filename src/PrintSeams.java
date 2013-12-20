@@ -45,7 +45,7 @@ public class PrintSeams {
         int[] verticalSeam = sc.findVerticalSeam();
         for (int j = 0; j < sc.height(); j++)
         {
-            for (int i = 0; i < sc.width(); i++)            
+            for (int i = 0; i < sc.width(); i++)
             {
                 char lMarker = ' ';
                 char rMarker = ' ';
@@ -72,8 +72,8 @@ public class PrintSeams {
         //inputImg.show();        
         SeamCarver sc = new SeamCarver(inputImg);
         
-//        System.out.printf("Displaying horizontal seam calculated.\n");
-//        printHorizontalSeam(sc);
+        System.out.printf("Displaying horizontal seam calculated.\n");
+        printHorizontalSeam(sc);
 
         System.out.printf("Displaying vertical seam calculated.\n");
         printVerticalSeam(sc);
