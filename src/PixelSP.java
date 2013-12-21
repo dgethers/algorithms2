@@ -39,12 +39,9 @@ public class PixelSP {
     }
 
     private Pixel[][] pixelArray;
-    private final Picture picture;
 
 
     PixelSP(Picture picture, double[][] energyMatrix) {
-        this.picture = picture;
-
         int height = picture.height();
         int width = picture.width();
 
@@ -158,6 +155,7 @@ public class PixelSP {
         for (Pixel pixel : stack) {
             results[index++] = pixel.column;
         }
+
         return results;
     }
 

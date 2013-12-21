@@ -55,7 +55,7 @@ public class SeamCarver {
     // energy of pixel at column x and row y in current picture
     public double energy(int x, int y) {
         if ((x < 0 || y < 0) || (x > picture.width() - 1 || y > picture.height() - 1)) {
-            throw new IllegalArgumentException("Input outside expected parameters");
+            throw new IndexOutOfBoundsException("Input outside expected parameters");
         }
 
         int output = MAX_GRADIENT_ENERGY;
@@ -108,10 +108,25 @@ public class SeamCarver {
             throw new IllegalArgumentException("Length of input array is less/greater than picture size");
         }
 
-        colorArray = MatrixUtils.transposeMatrix(colorArray);
+        colorArray = transposeMatrix(colorArray);
         removeVerticalSeam(values);
-        colorArray = MatrixUtils.transposeMatrix(colorArray);
+        colorArray = transposeMatrix(colorArray);
         convertFromArrayToPicture();
+    }
+
+    private static int[][] transposeMatrix(int[][] original) {
+        int height = original.length;
+        int width = original[0].length;
+
+        int[][] transposed = new int[width][height];
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                int rgb = original[i][j];
+                transposed[j][i] = rgb;
+            }
+        }
+
+        return transposed;
     }
 
     // remove vertical seam from current picture
@@ -147,52 +162,4 @@ public class SeamCarver {
 
         picture = newImage;
     }
-
-//    public static void main(String[] args) {
-        /*
-        pic is 6x5, (i, j) = (-1, 4)
-             - IndexOutOfBoundsException NOT thrown for energy()
-            pic is 6x5, (i, j) = (6, 4)
-             - IndexOutOfBoundsException NOT thrown for energy()
-            pic is 6x5, (i, j) = (5, 5)
-             - IndexOutOfBoundsException NOT thrown for energy()
-            pic is 6x5, (i, j) = (4, -1)
-             - IndexOutOfBoundsException NOT thrown for energy()
-            pic is 6x5, (i, j) = (4, 5)
-             - IndexOutOfBoundsException NOT thrown for energy()
-         */
-//        SeamCarver carver = new SeamCarver(new Picture("in/seamcarving/6x5.png"));
-//        carver.energy(-1, 4);
-//        carver.energy(6, 4);
-//        carver.energy(5, 5);
-//        carver.energy(4, -1);
-//        carver.energy(4, 5);
-//        carver.removeHorizontalSeam(new int[1]);
-//        carver.removeHorizontalSeam(new int[5]);
-//        carver.removeVerticalSeam(new int[1]);
-//        carver.removeVerticalSeam(new int[6]);
-//        int[] horizontalSeam = carver.findHorizontalSeam();
-//        System.out.println("---Before---");
-//        printPictureEnergy(carver.picture);
-//        carver.removeHorizontalSeam(horizontalSeam);
-//        System.out.println("---After---");
-//        printPictureEnergy(carver.picture);
-//    }
-    
-    /*public static void printPictureEnergy(Picture picture) {
-        System.out.printf("image is %d pixels wide by %d pixels high.\n", picture.width(), picture.height());
-
-        SeamCarver sc = new SeamCarver(picture);
-
-        System.out.printf("Printing energy calculated for each pixel.\n");
-
-        for (int j = 0; j < sc.height(); j++)
-        {
-            for (int i = 0; i < sc.width(); i++)
-                System.out.printf("%9.0f ", sc.energy(i, j));
-
-            System.out.println();
-        }
-        
-    }*/
 }
