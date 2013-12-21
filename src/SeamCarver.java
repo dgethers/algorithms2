@@ -54,7 +54,7 @@ public class SeamCarver {
 
     // energy of pixel at column x and row y in current picture
     public double energy(int x, int y) {
-        if ((x < 0 || y < 0) || (x > picture.width() || y > picture.height())) {
+        if ((x < 0 || y < 0) || (x > picture.width() - 1 || y > picture.height() - 1)) {
             throw new IllegalArgumentException("Input outside expected parameters");
         }
 
@@ -89,10 +89,6 @@ public class SeamCarver {
     public int[] findHorizontalSeam() {
 
         PixelSP pixelSP = new PixelSP(picture, energyMatrix);
-//        pixelSP.transposeMatrix();
-//        pixelSP.buildAdjList();
-//        int[] horizontalShortestPath = pixelSP.findHorizontalShortestPath();
-//        pixelSP.unTransposeMatrix();
         return pixelSP.findHorizontalShortestPath();
     }
 
@@ -102,7 +98,6 @@ public class SeamCarver {
     public int[] findVerticalSeam() {
 
         PixelSP pixelSP = new PixelSP(picture, energyMatrix);
-//        pixelSP.buildAdjList();
         return pixelSP.findVerticalShortestPath();
 
     }
@@ -113,14 +108,15 @@ public class SeamCarver {
             throw new IllegalArgumentException("Length of input array is less/greater than picture size");
         }
 
-//        transposeMatrix();
+        colorArray = MatrixUtils.transposeMatrix(colorArray);
         removeVerticalSeam(values);
-//        revertTransposeMatrix();
+        colorArray = MatrixUtils.transposeMatrix(colorArray);
+        convertFromArrayToPicture();
     }
 
     // remove vertical seam from current picture
     public void removeVerticalSeam(int[] values) {
-        if (values.length < picture.height() || values.length > picture.height()) {
+        if (values.length < colorArray.length || values.length > colorArray.length) {
             throw new IllegalArgumentException("Length of input array is less/greater than picture size");
         }
 
@@ -133,12 +129,16 @@ public class SeamCarver {
             System.arraycopy(row, 0, newRow, 0, values[position]);
             System.arraycopy(row, values[position] + 1, newRow, values[position], newRow.length - values[position]);
             colorArray[i] = newRow;
-//            System.arraycopy(row, values[position] + 1, newRow, values[position] + 1, values[position]);
         }
 
-       int height = colorArray.length;
-       int width = colorArray[0].length;
-       Picture newImage = new Picture(width, height);
+        convertFromArrayToPicture();
+
+    }
+
+    private void convertFromArrayToPicture() {
+        int height = colorArray.length;
+        int width = colorArray[0].length;
+        Picture newImage = new Picture(width, height);
         for (int row = 0; row < height; row++) {
             for (int column = 0; column < width; column++) {
                 newImage.set(column, row, new Color(colorArray[row][column]));
@@ -146,37 +146,53 @@ public class SeamCarver {
         }
 
         picture = newImage;
-
     }
 
-    //TODO: Create in place transpose with input parameter as array
-    private void transposeMatrix() {
-        int height = picture.height();
-        int width = picture.width();
+//    public static void main(String[] args) {
+        /*
+        pic is 6x5, (i, j) = (-1, 4)
+             - IndexOutOfBoundsException NOT thrown for energy()
+            pic is 6x5, (i, j) = (6, 4)
+             - IndexOutOfBoundsException NOT thrown for energy()
+            pic is 6x5, (i, j) = (5, 5)
+             - IndexOutOfBoundsException NOT thrown for energy()
+            pic is 6x5, (i, j) = (4, -1)
+             - IndexOutOfBoundsException NOT thrown for energy()
+            pic is 6x5, (i, j) = (4, 5)
+             - IndexOutOfBoundsException NOT thrown for energy()
+         */
+//        SeamCarver carver = new SeamCarver(new Picture("in/seamcarving/6x5.png"));
+//        carver.energy(-1, 4);
+//        carver.energy(6, 4);
+//        carver.energy(5, 5);
+//        carver.energy(4, -1);
+//        carver.energy(4, 5);
+//        carver.removeHorizontalSeam(new int[1]);
+//        carver.removeHorizontalSeam(new int[5]);
+//        carver.removeVerticalSeam(new int[1]);
+//        carver.removeVerticalSeam(new int[6]);
+//        int[] horizontalSeam = carver.findHorizontalSeam();
+//        System.out.println("---Before---");
+//        printPictureEnergy(carver.picture);
+//        carver.removeHorizontalSeam(horizontalSeam);
+//        System.out.println("---After---");
+//        printPictureEnergy(carver.picture);
+//    }
+    
+    /*public static void printPictureEnergy(Picture picture) {
+        System.out.printf("image is %d pixels wide by %d pixels high.\n", picture.width(), picture.height());
 
-        int[][] transpose = new int[width][height];
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                int rgb = colorArray[i][j];
-                transpose[j][i] = rgb;
-            }
+        SeamCarver sc = new SeamCarver(picture);
+
+        System.out.printf("Printing energy calculated for each pixel.\n");
+
+        for (int j = 0; j < sc.height(); j++)
+        {
+            for (int i = 0; i < sc.width(); i++)
+                System.out.printf("%9.0f ", sc.energy(i, j));
+
+            System.out.println();
         }
-
-        colorArray = transpose;
-    }
-
-    private void revertTransposeMatrix() {
-        int height = picture.height();
-        int width = picture.width();
-
-        int[][] original = new int[height][width];
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                int pixel = colorArray[i][j];
-                original[j][i] = pixel;
-            }
-        }
-
-        colorArray = original;
-    }
+        
+    }*/
 }

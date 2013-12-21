@@ -57,8 +57,8 @@ public class PixelSP {
     }
 
     private void transposeMatrix() {
-        int height = picture.height();
-        int width = picture.width();
+        int height = pixelArray.length;
+        int width = pixelArray[0].length;
 
         Pixel[][] transpose = new Pixel[width][height];
         for (int i = 0; i < height; i++) {
@@ -71,23 +71,6 @@ public class PixelSP {
         }
 
         pixelArray = transpose;
-    }
-
-    private void revertTransposeMatrix() {
-        int height = picture.height();
-        int width = picture.width();
-
-        Pixel[][] original = new Pixel[height][width];
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                Pixel pixel = pixelArray[i][j];
-                pixel.row = j;
-                pixel.column = i;
-                original[j][i] = pixel;
-            }
-        }
-
-        pixelArray = original;
     }
 
     private void buildAdjList() {
@@ -188,7 +171,7 @@ public class PixelSP {
     public int[] findHorizontalShortestPath() {
         transposeMatrix();
         int[] results = findVerticalShortestPath();
-        revertTransposeMatrix();
+        transposeMatrix();
         return results;
     }
 }
