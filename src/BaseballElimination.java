@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
@@ -21,19 +20,6 @@ public class BaseballElimination {
         private int loses;
         private int totalRemainingGames;
         private int[] remainingGamesAgainstOtherTeams;
-
-        @Override
-        public String toString() {
-            final StringBuilder sb = new StringBuilder("Team{");
-            sb.append("position=").append(position);
-            sb.append(", name='").append(name).append('\'');
-            sb.append(", wins=").append(wins);
-            sb.append(", loses=").append(loses);
-            sb.append(", totalRemainingGames=").append(totalRemainingGames);
-            sb.append(", remainingGamesAgainstOtherTeams=").append(Arrays.toString(remainingGamesAgainstOtherTeams));
-            sb.append('}');
-            return sb.toString();
-        }
     }
 
     private class Game {
@@ -44,21 +30,12 @@ public class BaseballElimination {
             this.name = name;
             this.remainingGames = remainingGames;
         }
-
-        @Override
-        public String toString() {
-            final StringBuilder sb = new StringBuilder("Game{");
-            sb.append("name='").append(name).append('\'');
-            sb.append(", remainingGames=").append(remainingGames);
-            sb.append('}');
-            return sb.toString();
-        }
     }
 
     private final Map<String, Team> teams;
-    private final int SOURCE = 0;
-    Map<Integer, Integer> verticieToTeamMap = new HashMap<Integer, Integer>();
-    Map<Integer, Integer> teamToVerticieMap = new HashMap<Integer, Integer>();
+    private static final int SOURCE = 0;
+    Map<Integer, Integer> vertexToTeamMap = new HashMap<Integer, Integer>();
+    Map<Integer, Integer> teamToVertexMap = new HashMap<Integer, Integer>();
 
     // create a baseball division from given filename in format specified below
     public BaseballElimination(String filename) {
@@ -83,7 +60,6 @@ public class BaseballElimination {
             team.remainingGamesAgainstOtherTeams = remainingGamesPerTeam;
 
             teams.put(team.name, team);
-
         }
     }
 
@@ -99,21 +75,30 @@ public class BaseballElimination {
 
     // number of wins for given team
     public int wins(String team) {
+        checkIfInputIsValid(team);
+
         return teams.get(team).wins;
     }
 
     // number of losses for given team
     public int losses(String team) {
+        checkIfInputIsValid(team);
+
         return teams.get(team).loses;
     }
 
     // number of remaining games for given team
     public int remaining(String team) {
+        checkIfInputIsValid(team);
+
         return teams.get(team).totalRemainingGames;
     }
 
     // number of remaining games between team1 and team2
     public int against(String team1, String team2) {
+        checkIfInputIsValid(team1);
+        checkIfInputIsValid(team2);
+
         Team firstTeam = teams.get(team1);
         Team secondTeam = teams.get(team2);
 
@@ -121,22 +106,25 @@ public class BaseballElimination {
     }
 
     // is given team eliminated?
-    public boolean isEliminated(String teamName) {
-        Team currTeam = teams.get(teamName);
+    public boolean isEliminated(String team) {
+        checkIfInputIsValid(team);
 
-        List<String> eliminationTeams = getListOfTeamNamesThatTrivallyEliminateChoosenTeam(currTeam);
+        Team chosenTeam = teams.get(team);
+
+        List<String> eliminationTeams = getListOfTeamNamesThatTrivallyEliminateChoosenTeam(chosenTeam);
 
         if (eliminationTeams.size() > 0) {
+
             return true;
         } else {
 
-            List<Game> gameList = getListOfAllUniqueGamesExcludingCurrentTeam(currTeam);
+            List<Game> gameList = getListOfAllUniqueGamesExcludingCurrentTeam(chosenTeam);
 
             Set<Integer> uniqueTeams = getAllUniqueTeamsFromGames(gameList);
 
             final int SINK = (gameList.size() + uniqueTeams.size() + 2) - 1;
 
-            FlowNetwork flowNetwork = createFlowNetwork(gameList, uniqueTeams, currTeam, SINK);
+            FlowNetwork flowNetwork = createFlowNetwork(gameList, uniqueTeams, chosenTeam, SINK);
 
             new FordFulkerson(flowNetwork, SOURCE, SINK);
             Iterable<FlowEdge> edges = flowNetwork.edges();
@@ -150,10 +138,45 @@ public class BaseballElimination {
         return false;
     }
 
+    private void checkIfInputIsValid(String team) {
+        if (!teams.containsKey(team)) {
+            throw new IllegalArgumentException("Invalid team used");
+        }
+    }
+
+    // subset R of teams that eliminates given team; null if not eliminated
+    public Iterable<String> certificateOfElimination(String team) {
+        checkIfInputIsValid(team);
+
+        Team currTeam = teams.get(team);
+
+        List<String> eliminationTeams = getListOfTeamNamesThatTrivallyEliminateChoosenTeam(currTeam);
+
+        if (eliminationTeams.size() < 1) {
+
+            List<Game> gameList = getListOfAllUniqueGamesExcludingCurrentTeam(currTeam);
+
+            Set<Integer> uniqueTeams = getAllUniqueTeamsFromGames(gameList);
+
+            final int SINK = (gameList.size() + uniqueTeams.size() + 2) - 1;
+
+            FlowNetwork flowNetwork = createFlowNetwork(gameList, uniqueTeams, currTeam, SINK);
+
+            FordFulkerson fordFulkerson = new FordFulkerson(flowNetwork, SOURCE, SINK);
+
+            for (int i = 1 + gameList.size(); i < gameList.size() + uniqueTeams.size() + 1; i++) {
+                boolean inTheCut = fordFulkerson.inCut(i);
+                if (inTheCut) {
+                    eliminationTeams.add(getTeamByPosition(vertexToTeamMap.get(i)).name);
+                }
+            }
+        }
+
+        return eliminationTeams;
+    }
+
     private FlowNetwork createFlowNetwork(List<Game> gameList, Set<Integer> uniqueTeams, Team choosenTeam, final int SINK) {
         final int totalVertexCount = gameList.size() + uniqueTeams.size() + 2;
-        final int SOURCE = 0;
-
         int gameVertex = 1;
         int teamVertex = gameVertex + gameList.size();
 
@@ -166,17 +189,17 @@ public class BaseballElimination {
             String[] teamPosition = game.name.split("-");
             for (int i = 0; i < teamPosition.length; i++) {
                 Integer team = Integer.parseInt(teamPosition[i]);
-                FlowEdge teamEdge = new FlowEdge(gameVertex, teamToVerticieMap.get(team), Double.POSITIVE_INFINITY);
+                FlowEdge teamEdge = new FlowEdge(gameVertex, teamToVertexMap.get(team), Double.POSITIVE_INFINITY);
                 flowNetwork.addEdge(teamEdge);
+
                 boolean edgeAlreadyExists = false;
                 Iterable<FlowEdge> flowNetworkEdges = flowNetwork.edges();
                 for (FlowEdge flowNetworkEdge : flowNetworkEdges) {
-                    if (flowNetworkEdge.from() == teamToVerticieMap.get(team) && flowNetworkEdge.to() == SINK) {
+                    if (flowNetworkEdge.from() == teamToVertexMap.get(team) && flowNetworkEdge.to() == SINK) {
                         edgeAlreadyExists = true;
                     }
                 }
-
-                FlowEdge sinkEdge = new FlowEdge(teamToVerticieMap.get(team), SINK, choosenTeam.wins + choosenTeam.totalRemainingGames - getTeamByPosition(team).wins);
+                FlowEdge sinkEdge = new FlowEdge(teamToVertexMap.get(team), SINK, choosenTeam.wins + choosenTeam.totalRemainingGames - getTeamByPosition(team).wins);
 
                 if (!edgeAlreadyExists) {
                     flowNetwork.addEdge(sinkEdge);
@@ -241,45 +264,14 @@ public class BaseballElimination {
         return false;
     }
 
-    // subset R of teams that eliminates given team; null if not eliminated
-    public Iterable<String> certificateOfElimination(String teamName) {
-        Team currTeam = teams.get(teamName);
-
-        List<String> eliminationTeams = getListOfTeamNamesThatTrivallyEliminateChoosenTeam(currTeam);
-
-        if (eliminationTeams.size() < 1) {
-
-            //get all unique games
-            List<Game> gameList = getListOfAllUniqueGamesExcludingCurrentTeam(currTeam);
-
-            //get all unique teams
-            Set<Integer> uniqueTeams = getAllUniqueTeamsFromGames(gameList);
-
-            final int SINK = (gameList.size() + uniqueTeams.size() + 2) - 1;
-
-            FlowNetwork flowNetwork = createFlowNetwork(gameList, uniqueTeams, currTeam, SINK);
-
-            FordFulkerson fordFulkerson = new FordFulkerson(flowNetwork, SOURCE, SINK);
-
-            for (int i = 1 + gameList.size(); i < gameList.size() + uniqueTeams.size() + 1; i++) {
-                boolean inTheCut = fordFulkerson.inCut(i);
-                if (inTheCut) {
-                    eliminationTeams.add(getTeamByPosition(verticieToTeamMap.get(i)).name);
-                }
-            }
-        }
-
-        return eliminationTeams;
-    }
-
     private void clearAndPopulateVertexToTeamAndTeamToVertexMaps(Set<Integer> uniqueTeams, int teamVertexStart) {
         int teamVertex = teamVertexStart;
-        teamToVerticieMap.clear();
-        verticieToTeamMap.clear();
+        teamToVertexMap.clear();
+        vertexToTeamMap.clear();
 
         for (Integer uniqueTeam : uniqueTeams) {
-            teamToVerticieMap.put(uniqueTeam, teamVertex);
-            verticieToTeamMap.put(teamVertex, uniqueTeam);
+            teamToVertexMap.put(uniqueTeam, teamVertex);
+            vertexToTeamMap.put(teamVertex, uniqueTeam);
             teamVertex++;
         }
     }
