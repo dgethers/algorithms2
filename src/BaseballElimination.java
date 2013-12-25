@@ -23,8 +23,8 @@ public class BaseballElimination {
     }
 
     private class Game {
-        private String name;
-        private int remainingGames;
+        private final String name;
+        private final int remainingGames;
 
         private Game(String name, int remainingGames) {
             this.name = name;
@@ -32,19 +32,24 @@ public class BaseballElimination {
         }
     }
 
-    private final Map<String, Team> teams;
     private static final int SOURCE = 0;
-    Map<Integer, Integer> vertexToTeamMap = new HashMap<Integer, Integer>();
-    Map<Integer, Integer> teamToVertexMap = new HashMap<Integer, Integer>();
+
+    private final Map<String, Team> teams;
+    private final Map<Integer, Integer> vertexToTeamMap;
+    private final Map<Integer, Integer> teamToVertexMap;
 
     // create a baseball division from given filename in format specified below
     public BaseballElimination(String filename) {
         teams = new LinkedHashMap<String, Team>();
+        vertexToTeamMap = new HashMap<Integer, Integer>();
+        teamToVertexMap = new HashMap<Integer, Integer>();
+
         In in = new In(filename);
         int numberOfTeams = Integer.parseInt(in.readLine());
         int position = 0;
         while (in.hasNextLine()) {
-            String line = in.readLine();
+            String rawLine = in.readLine();
+            String line = rawLine.trim();
             String[] entries = line.split("\\s+");
             Team team = new Team();
             team.position = position++;
@@ -122,11 +127,11 @@ public class BaseballElimination {
 
             Set<Integer> uniqueTeams = getAllUniqueTeamsFromGames(gameList);
 
-            final int SINK = (gameList.size() + uniqueTeams.size() + 2) - 1;
+            final int sink = (gameList.size() + uniqueTeams.size() + 2) - 1;
 
-            FlowNetwork flowNetwork = createFlowNetwork(gameList, uniqueTeams, chosenTeam, SINK);
+            FlowNetwork flowNetwork = createFlowNetwork(gameList, uniqueTeams, chosenTeam, sink);
 
-            new FordFulkerson(flowNetwork, SOURCE, SINK);
+            new FordFulkerson(flowNetwork, SOURCE, sink);
             Iterable<FlowEdge> edges = flowNetwork.edges();
             for (FlowEdge edge : edges) {
                 if (edge.from() == 0 && edge.flow() < edge.capacity()) {
@@ -158,11 +163,11 @@ public class BaseballElimination {
 
             Set<Integer> uniqueTeams = getAllUniqueTeamsFromGames(gameList);
 
-            final int SINK = (gameList.size() + uniqueTeams.size() + 2) - 1;
+            final int sink = (gameList.size() + uniqueTeams.size() + 2) - 1;
 
-            FlowNetwork flowNetwork = createFlowNetwork(gameList, uniqueTeams, currTeam, SINK);
+            FlowNetwork flowNetwork = createFlowNetwork(gameList, uniqueTeams, currTeam, sink);
 
-            FordFulkerson fordFulkerson = new FordFulkerson(flowNetwork, SOURCE, SINK);
+            FordFulkerson fordFulkerson = new FordFulkerson(flowNetwork, SOURCE, sink);
 
             for (int i = 1 + gameList.size(); i < gameList.size() + uniqueTeams.size() + 1; i++) {
                 boolean inTheCut = fordFulkerson.inCut(i);
@@ -172,10 +177,10 @@ public class BaseballElimination {
             }
         }
 
-        return eliminationTeams;
+        return eliminationTeams.size() == 0 ? null : eliminationTeams;
     }
 
-    private FlowNetwork createFlowNetwork(List<Game> gameList, Set<Integer> uniqueTeams, Team choosenTeam, final int SINK) {
+    private FlowNetwork createFlowNetwork(List<Game> gameList, Set<Integer> uniqueTeams, Team choosenTeam, final int sink) {
         final int totalVertexCount = gameList.size() + uniqueTeams.size() + 2;
         int gameVertex = 1;
         int teamVertex = gameVertex + gameList.size();
@@ -188,18 +193,18 @@ public class BaseballElimination {
             flowNetwork.addEdge(gameEdge);
             String[] teamPosition = game.name.split("-");
             for (int i = 0; i < teamPosition.length; i++) {
-                Integer team = Integer.parseInt(teamPosition[i]);
+                int team = Integer.parseInt(teamPosition[i]);
                 FlowEdge teamEdge = new FlowEdge(gameVertex, teamToVertexMap.get(team), Double.POSITIVE_INFINITY);
                 flowNetwork.addEdge(teamEdge);
 
                 boolean edgeAlreadyExists = false;
                 Iterable<FlowEdge> flowNetworkEdges = flowNetwork.edges();
                 for (FlowEdge flowNetworkEdge : flowNetworkEdges) {
-                    if (flowNetworkEdge.from() == teamToVertexMap.get(team) && flowNetworkEdge.to() == SINK) {
+                    if (flowNetworkEdge.from() == teamToVertexMap.get(team) && flowNetworkEdge.to() == sink) {
                         edgeAlreadyExists = true;
                     }
                 }
-                FlowEdge sinkEdge = new FlowEdge(teamToVertexMap.get(team), SINK, choosenTeam.wins + choosenTeam.totalRemainingGames - getTeamByPosition(team).wins);
+                FlowEdge sinkEdge = new FlowEdge(teamToVertexMap.get(team), sink, choosenTeam.wins + choosenTeam.totalRemainingGames - getTeamByPosition(team).wins);
 
                 if (!edgeAlreadyExists) {
                     flowNetwork.addEdge(sinkEdge);
@@ -255,8 +260,10 @@ public class BaseballElimination {
     }
 
     private static boolean doesGameAlreadyExist(List<Game> gameList, String gameName) {
+        String[] gameTeams = gameName.split("-");
+        String reverseName = gameTeams[1] + "-" + gameTeams[0];
         for (Game game : gameList) {
-            if (game.name.equals(gameName) || game.name.equals(new StringBuilder(gameName).reverse().toString())) {
+            if (game.name.equals(gameName) || game.name.equals(reverseName)) {
                 return true;
             }
         }
@@ -269,7 +276,7 @@ public class BaseballElimination {
         teamToVertexMap.clear();
         vertexToTeamMap.clear();
 
-        for (Integer uniqueTeam : uniqueTeams) {
+        for (int uniqueTeam : uniqueTeams) {
             teamToVertexMap.put(uniqueTeam, teamVertex);
             vertexToTeamMap.put(teamVertex, uniqueTeam);
             teamVertex++;
