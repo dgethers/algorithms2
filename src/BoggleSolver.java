@@ -22,13 +22,12 @@ public class BoggleSolver {
         }
     }
 
-    private final Set<String> dict;
     private final TrieST<Integer> trie;
 
     // Initializes the data structure using the given array of strings as the dictionary.
     // (You can assume each word in the dictionary contains only the uppercase letters A through Z.)
     public BoggleSolver(String[] dictionary) {
-        dict = new TreeSet<String>(Arrays.asList(dictionary));
+        Set<String> dict = new TreeSet<String>(Arrays.asList(dictionary));
         trie = new TrieST<Integer>();
 
         int value = 0;
@@ -54,7 +53,7 @@ public class BoggleSolver {
                 word.append(letter);
                 Position current = new Position(row, column);
                 marked[row][column] = true;
-                Stack<Position> nextPositions = getNextPositions(current, board.rows(), board.cols());
+                List<Position> nextPositions = getNextPositions(current, board.rows(), board.cols());
                 for (Position position : nextPositions) {
                     stack.push(position);
                 }
@@ -64,22 +63,23 @@ public class BoggleSolver {
                     marked[next.x][next.y] = true;
                     word.append(board.getLetter(next.x, next.y));
 
-                    if (word.length() >= 3) {
-                        if (dict.contains(word.toString())) {
-                            validWords.add(word.toString());
-
+                        //not a prefix and not a word
+                        if (!(trie.keysWithPrefix(word.toString()).iterator().hasNext()) && trie.get(word.toString()) == null) {
                             clearMarkedArray(board, marked);
-
-                            continue columnLoop;
-                        } else {
                             word.deleteCharAt(word.length() - 1);
                             marked[next.x][next.y] = false;
+                        } //not a prefix but is a word
+                        else if (!trie.keysWithPrefix(word.toString()).iterator().hasNext() && trie.get(word.toString()) != null) {
+                            validWords.add(word.toString());
+                            clearMarkedArray(board, marked);
+                            continue columnLoop;
+                        } //is a prefix, is a word
+                        else if (trie.keysWithPrefix(word.toString()).iterator().hasNext() && trie.get(word.toString()) != null) {
+                            validWords.add(word.toString());
+                            addNextPositionsToStack(board, marked, stack, next);
                         }
-                    } else {
-
-                        addNextPositionsToStack(board, marked, stack, next);
                     }
-                }
+
             }
 
             clearMarkedArray(board, marked);
@@ -89,7 +89,7 @@ public class BoggleSolver {
     }
 
     private void addNextPositionsToStack(BoggleBoard board, boolean[][] marked, Stack<Position> stack, Position next) {
-        Stack<Position> positions = getNextPositions(next, board.rows(), board.cols());
+        List<Position> positions = getNextPositions(next, board.rows(), board.cols());
         for (Position position : positions) {
             if (!marked[position.x][position.y]) {
                 stack.push(position);
@@ -105,32 +105,32 @@ public class BoggleSolver {
         }
     }
 
-    private Stack<Position> getNextPositions(Position coordinates, int maxRows, int maxColumns) {
-        Stack<Position> positions = new Stack<Position>();
+    private List<Position> getNextPositions(Position coordinates, int maxRows, int maxColumns) {
+        List<Position> positions = new ArrayList<Position>();
 
         if (coordinates.x > 0)
-            positions.push(new Position(coordinates.x - 1, coordinates.y));
+            positions.add(new Position(coordinates.x - 1, coordinates.y));
 
         if (coordinates.x > 0 && coordinates.y < maxColumns - 1)
-            positions.push(new Position(coordinates.x - 1, coordinates.y + 1));
+            positions.add(new Position(coordinates.x - 1, coordinates.y + 1));
 
         if (coordinates.y < maxColumns - 1)
-            positions.push(new Position(coordinates.x, coordinates.y + 1));
+            positions.add(new Position(coordinates.x, coordinates.y + 1));
 
         if (coordinates.y < maxColumns - 1 && coordinates.x < maxRows - 1)
-            positions.push(new Position(coordinates.x + 1, coordinates.y + 1));
+            positions.add(new Position(coordinates.x + 1, coordinates.y + 1));
 
         if (coordinates.x < maxRows - 1)
-            positions.push(new Position(coordinates.x + 1, coordinates.y));
+            positions.add(new Position(coordinates.x + 1, coordinates.y));
 
         if (coordinates.y > 0 && coordinates.x > 0)
-            positions.push(new Position(coordinates.x - 1, coordinates.y - 1));
+            positions.add(new Position(coordinates.x - 1, coordinates.y - 1));
 
         if (coordinates.y > 0)
-            positions.push(new Position(coordinates.x, coordinates.y - 1));
+            positions.add(new Position(coordinates.x, coordinates.y - 1));
 
         if (coordinates.x < maxRows - 1 && coordinates.y > 0)
-            positions.push(new Position(coordinates.x + 1, coordinates.y - 1));
+            positions.add(new Position(coordinates.x + 1, coordinates.y - 1));
 
         return positions;
     }
@@ -138,7 +138,16 @@ public class BoggleSolver {
     // Returns the score of the given word if it is in the dictionary, zero otherwise.
     // (You can assume the word contains only the uppercase letters A through Z.)
     public int scoreOf(String word) {
-        //TODO: Implement this
+        if (word.length() > 2 && word.length() < 5)
+            return 1;
+        if (word.length() == 5)
+            return 2;
+        if (word.length() == 6)
+            return 3;
+        if (word.length() == 7)
+            return 5;
+        if (word.length() > 7)
+            return 11;
 
         return 0;
     }
