@@ -23,6 +23,7 @@ public class BoggleSolver {
     }
 
     private final TrieST<Integer> trie;
+    private final Set<String> validWords;
 
     // Initializes the data structure using the given array of strings as the dictionary.
     // (You can assume each word in the dictionary contains only the uppercase letters A through Z.)
@@ -35,18 +36,18 @@ public class BoggleSolver {
             trie.put(word, value++);
         }
 
+        validWords = new TreeSet<String>();
     }
 
     // Returns the set of all valid words in the given Boggle board, as an Iterable.
     public Iterable<String> getAllValidWords(BoggleBoard board) {
         boolean[][] marked = new boolean[board.rows()][board.cols()];
-        List<String> validWords = new ArrayList<String>();
 
 
         for (int row = 0; row < board.rows(); row++) {
             columnLoop:
             for (int column = 0; column < board.cols(); column++) {
-                Stack<Position> stack = new Stack<Position>();
+                Stack<Position> history = new Stack<Position>();
                 StringBuilder word = new StringBuilder();
 
                 char letter = board.getLetter(row, column);
@@ -55,13 +56,17 @@ public class BoggleSolver {
                 marked[row][column] = true;
                 List<Position> nextPositions = getNextPositions(current, board.rows(), board.cols());
                 for (Position position : nextPositions) {
-                    stack.push(position);
+                    history.push(position);
                 }
 
-                while (stack.size() > 0) {
-                    Position next = stack.pop();
-                    marked[next.x][next.y] = true;
-                    word.append(board.getLetter(next.x, next.y));
+                while (history.size() > 0) {
+                    Stack<Position> child = new Stack<Position>();
+                    child.push(history.pop());
+
+                    while (child.size() > 0) {
+                        Position next = child.pop();
+                        marked[next.x][next.y] = true;
+                        word.append(board.getLetter(next.x, next.y));
 
                         //not a prefix and not a word
                         if (!(trie.keysWithPrefix(word.toString()).iterator().hasNext()) && trie.get(word.toString()) == null) {
@@ -70,22 +75,33 @@ public class BoggleSolver {
                             marked[next.x][next.y] = false;
                         } //not a prefix but is a word
                         else if (!trie.keysWithPrefix(word.toString()).iterator().hasNext() && trie.get(word.toString()) != null) {
-                            validWords.add(word.toString());
+                            addWordToValidWordList(word.toString());
                             clearMarkedArray(board, marked);
                             continue columnLoop;
                         } //is a prefix, is a word
                         else if (trie.keysWithPrefix(word.toString()).iterator().hasNext() && trie.get(word.toString()) != null) {
-                            validWords.add(word.toString());
-                            addNextPositionsToStack(board, marked, stack, next);
+                            addWordToValidWordList(word.toString());
+                            addNextPositionsToStack(board, marked, child, next);
+                        } //is a prefix but not a word
+                        else {
+                            addNextPositionsToStack(board, marked, child, next);
                         }
                     }
 
+                    if (word.length() > 1)
+                        word.deleteCharAt(word.length() - 1);
+                }
             }
 
             clearMarkedArray(board, marked);
         }
 
         return validWords;
+    }
+
+    private void addWordToValidWordList(String word) {
+        if (word.length() >= 3)
+            validWords.add(word);
     }
 
     private void addNextPositionsToStack(BoggleBoard board, boolean[][] marked, Stack<Position> stack, Position next) {
@@ -152,15 +168,13 @@ public class BoggleSolver {
         return 0;
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         In in = new In(args[0]);
         String[] dictionary = in.readAllStrings();
         BoggleSolver solver = new BoggleSolver(dictionary);
         BoggleBoard board = new BoggleBoard(args[1]);
         int score = 0;
-        for (String word : solver.getAllValidWords(board))
-        {
+        for (String word : solver.getAllValidWords(board)) {
             StdOut.println(word);
             score += solver.scoreOf(word);
         }
