@@ -33,6 +33,7 @@ public class BoggleSolver {
 
     private final TrieST<Integer> trie;
     private final Set<String> validWords;
+//    private final Set<String> validWords;
 
     // Initializes the data structure using the given array of strings as the dictionary.
     // (You can assume each word in the dictionary contains only the uppercase letters A through Z.)
@@ -56,53 +57,63 @@ public class BoggleSolver {
                 boolean[][] marked = new boolean[board.rows()][board.cols()];
                 StringBuilder word = new StringBuilder();
                 char letter = board.getLetter(row, column);
-                word.append(letter);
-
                 Stack<Position> history = new Stack<Position>();
-                Position pos = new Position(row, column, letter);
-                marked[row][column] = true;
-                List<Position> nextPositions = getNextPositions(board, pos, board.rows(), board.cols());
-                for (Position position : nextPositions) {
-                    history.push(position);
-                }
+                Stack<Position> nextPositions = new Stack<Position>();
 
+
+                Position current = new Position(row, column, letter);
+                nextPositions.push(current);
                 int currentLevel = 0;
 
-                while (history.size() > 0) {
-                    Position next = history.pop();
+                while (nextPositions.size() > 0) {
+                    Position next = nextPositions.pop();
+
 
                     boolean shouldRemoveLetter = next.level < currentLevel;
                     if (shouldRemoveLetter) {
-                        currentLevel--;
-                        word.deleteCharAt(word.length() - 1);
+                        int levelDiff = currentLevel - next.level;
+                        for (int i = 1; i <= levelDiff; i++) {
+                            word.deleteCharAt(word.length() - 1);
+                            Position historyElm = history.pop();
+                            marked[historyElm.x][historyElm.y] = false;
+                        }
+                        currentLevel = currentLevel - levelDiff;
                     }
+
+                    history.push(next);
 
                     marked[next.x][next.y] = true;
                     word.append(board.getLetter(next.x, next.y));
 
-                    //current entries do not form a word or are not a prefix for another. remove letter and keep trying
+                    //not a word and not a prefix
                     if (!(trie.keysWithPrefix(word.toString()).iterator().hasNext()) && trie.get(word.toString()) == null) {
 //                        clearMarkedArray(board, marked);
                         word.deleteCharAt(word.length() - 1); //delete last character since it isn't valid
                         marked[next.x][next.y] = false; //mark it's entry to false since it is no longer used for word
+                        history.pop();
+
 //                        currentLevel--;
-                    } //current entries form a word but do not form a prefix for any other words. add word to list and move on
+                    } //word but not a prefix
                     else if (!trie.keysWithPrefix(word.toString()).iterator().hasNext() && trie.get(word.toString()) != null) {
                         addWordToValidWordList(word.toString());
 //                        clearMarkedArray(board, marked);
                         marked[next.x][next.y] = false;
                         word.deleteCharAt(word.length() - 1); //delete last character since it isn't valid
+                        history.pop();
 //                        continue columnLoop;
                     } //is a prefix, is a word
                     else if (trie.keysWithPrefix(word.toString()).iterator().hasNext() && trie.get(word.toString()) != null) {
                         addWordToValidWordList(word.toString());
-                        addNextPositionsToStack(board, marked, history, next);
                         currentLevel++;
+                        addNextPositionsToStack(board, marked, nextPositions, next, currentLevel);
                     } //is a prefix but not a word
                     else if (trie.keysWithPrefix(word.toString()).iterator().hasNext() && trie.get(word.toString()) == null) {
-                        addNextPositionsToStack(board, marked, history, next);
                         currentLevel++;
+                        addNextPositionsToStack(board, marked, nextPositions, next, currentLevel);
                     }
+
+//                    Position previous = history.pop();
+//                    marked[previous.x][previous.y] = false;
                 }
             }
 
@@ -117,12 +128,12 @@ public class BoggleSolver {
             validWords.add(word);
     }
 
-    private void addNextPositionsToStack(BoggleBoard board, boolean[][] marked, Stack<Position> stack, Position next) {
+    private void addNextPositionsToStack(BoggleBoard board, boolean[][] marked, Stack<Position> stack, Position next, int currentLevel) {
         List<Position> positions = getNextPositions(board, next, board.rows(), board.cols());
         for (Position position : positions) {
             if (!marked[position.x][position.y]) {
                 position.level = position.level++;
-                Position newPosition = new Position(position.x, position.y, position.level + 1);
+                Position newPosition = new Position(position.x, position.y, currentLevel);
                 newPosition.letter = board.getLetter(position.x, position.y);
                 stack.push(newPosition);
             }
