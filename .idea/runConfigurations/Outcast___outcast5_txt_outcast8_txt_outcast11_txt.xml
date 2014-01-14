@@ -1,0 +1,19 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Outcast - outcast5.txt outcast8.txt outcast11.txt" type="Application" factoryName="Application" folderName="wordnet" singleton="true">
+    <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <option name="MAIN_CLASS_NAME" value="Outcast" />
+    <option name="VM_PARAMETERS" value="" />
+    <option name="PROGRAM_PARAMETERS" value="in/wordnet/synsets.txt in/wordnet/hypernyms.txt in/wordnet/outcast5.txt in/wordnet/outcast8.txt in/wordnet/outcast11.txt" />
+    <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+    <option name="ALTERNATIVE_JRE_PATH" value="" />
+    <option name="ENABLE_SWING_INSPECTOR" value="false" />
+    <option name="ENV_VARIABLES" />
+    <option name="PASS_PARENT_ENVS" value="true" />
+    <module name="algorithms2" />
+    <envs />
+    <RunnerSettings RunnerId="Run" />
+    <ConfigurationWrapper RunnerId="Run" />
+    <method />
+  </configuration>
+</component>
