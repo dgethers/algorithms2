@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a51700e-0fc9-402a-a027-19bff7f219e4" name="Default" comment="Throw IndexOutOfBoundE">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/MatrixUtils.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PixelSP.java" afterPath="$PROJECT_DIR$/src/PixelSP.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SeamCarver.java" afterPath="$PROJECT_DIR$/src/SeamCarver.java" />
+    <list id="1a51700e-0fc9-402a-a027-19bff7f219e4" name="Default" comment="Added">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
+    <list default="true" id="2427e7cc-da19-4c26-a7d7-e46a331fd710" name="Programming Assignment 4 - Boggle" comment="Programming Assignment 4 - Boggle">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Boggle_Solver___board_points26539_dictionary_algs4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Boggle_Solver___board_q_dictionary_algs4.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Boggle_Solver___board_q_dictionary_algs4.xml" />
+    </list>
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +28,7 @@
   <component name="DebuggerManager">
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/PrintSeams.java" line="17" class="PrintSeams" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/SeamCarver.java" line="98" class="SeamCarver" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -85,91 +89,96 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PixelSP.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PixelSP.java">
+      <file leaf-file-name="BoggleSolver.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/BoggleSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="14" selection-start="4636" selection-end="4636" vertical-scroll-proportion="0.0" vertical-offset="1590" max-vertical-offset="2715">
+            <state line="64" column="37" selection-start="2003" selection-end="2003" vertical-scroll-proportion="0.18443803" vertical-offset="892" max-vertical-offset="3842">
+              <folding>
+                <element signature="method#Position#1;class#Position#0;class#BoggleSolver#0" expanded="false" />
+                <element signature="e#1764#1774#0" expanded="true" />
+                <element signature="e#1835#1845#0" expanded="true" />
+                <element signature="e#5683#5693#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="board4x4.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/in/boggle/board4x4.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="0" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SeamCarver.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/SeamCarver.java">
+      <file leaf-file-name="board-aqua.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/in/boggle/board-aqua.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="22" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.3529412" vertical-offset="549" max-vertical-offset="2565">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="3x7.printseams.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/3x7.printseams.txt">
+      <file leaf-file-name="board-antidisestablishmentarianisms.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/in/boggle/board-antidisestablishmentarianisms.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="36" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="136">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="4x6.printseams.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/4x6.printseams.txt">
+      <file leaf-file-name="dictionary-sowpods.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-sowpods.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+            <state line="267751" column="0" selection-start="2707014" selection-end="2707014" vertical-scroll-proportion="-26.08" vertical-offset="4551115" max-vertical-offset="4551869">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="7x3.printseams.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/7x3.printseams.txt">
+      <file leaf-file-name="dictionary-twl06.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-twl06.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+            <state line="178691" column="0" selection-start="1763167" selection-end="1763167" vertical-scroll-proportion="0.0" vertical-offset="3037070" max-vertical-offset="3037849">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="12x10.printseams.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/12x10.printseams.txt">
+      <file leaf-file-name="dictionary-yawl.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-yawl.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="70" selection-start="1830" selection-end="1835" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="540">
+            <state line="264061" column="0" selection-start="2721582" selection-end="2721582" vertical-scroll-proportion="-26.08" vertical-offset="4488385" max-vertical-offset="4489139">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HJocean.printseams.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/HJocean.printseams.txt">
+      <file leaf-file-name="dictionary-zingarelli2005.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-zingarelli2005.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="12" selection-start="48475" selection-end="48475" vertical-scroll-proportion="248.44" vertical-offset="6346" max-vertical-offset="13200">
+            <state line="584983" column="0" selection-start="6704049" selection-end="6704049" vertical-scroll-proportion="-26.92" vertical-offset="9944038" max-vertical-offset="9944813">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HJoceanTransposed.printseams.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/HJoceanTransposed.printseams.txt">
+      <file leaf-file-name="board0x4.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/in/boggle/board0x4.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1540" column="23" selection-start="5965881" selection-end="5965881" vertical-scroll-proportion="-10.16" vertical-offset="22846" max-vertical-offset="23280">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrintSeams.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PrintSeams.java">
+      <file leaf-file-name="board4x0.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/in/boggle/board4x0.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="624" selection-end="624" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1335">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PrintEnergy.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PrintEnergy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="19" selection-start="538" selection-end="1054" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
               <folding />
             </state>
           </provider>
@@ -195,39 +204,30 @@
       <list>
         <option value="$PROJECT_DIR$/src/WordNet.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/AcyclicSPMatrix.java" />
         <option value="$PROJECT_DIR$/src/PrintSeams.java" />
-        <option value="$PROJECT_DIR$/src/MatrixUtils.java" />
-        <option value="$PROJECT_DIR$/src/PixelSP.java" />
+        <option value="$PROJECT_DIR$/src/AcyclicSPMatrix.java" />
         <option value="$PROJECT_DIR$/src/SeamCarver.java" />
+        <option value="$PROJECT_DIR$/src/PixelSP.java" />
+        <option value="$PROJECT_DIR$/in/boggle/dictionary-algs4.txt" />
+        <option value="$PROJECT_DIR$/src/TrieManipulation.java" />
+        <option value="$PROJECT_DIR$/src/BoggleSolver.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="57" />
-    <option name="y" value="31" />
-    <option name="width" value="1623" />
-    <option name="height" value="1010" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="916" />
+    <option name="height" value="1394" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
         <expanded-state>
           <State>
-            <id />
-          </State>
-          <State>
-            <id>Android Lint</id>
-          </State>
-          <State>
             <id>Plugin DevKit</id>
           </State>
         </expanded-state>
-        <selected-state>
-          <State>
-            <id>Abstraction issues</id>
-          </State>
-        </selected-state>
       </profile-state>
     </entry>
   </component>
@@ -259,7 +259,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -292,50 +291,83 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="algorithms2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="algorithms2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="in" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="algorithms2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="algorithms2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="in" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boggle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="179" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="65" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="65" />
     <property name="OverrideImplement.combined" value="true" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="190" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="248" />
-    <property name="recentsLimit" value="5" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="66" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/stdlib.jar!/" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="194" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="820" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="988" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="244" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="239" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="65" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="639" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="629" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="62" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="57" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="options.lastSelected" value="appearance" />
-    <property name="project.structure.side.proportion" value="0.2" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="SearchEverywhereHistory" value="" />
     <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
@@ -350,10 +382,10 @@
       <recent name="$PROJECT_DIR$/in/wordnet" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SeamCarver">
-    <configuration default="false" name="MatrixUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Boggle Solver - board-points26539/dictionary-algs4">
+    <configuration default="false" name="TrieManipulation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="MatrixUtils" />
+      <option name="MAIN_CLASS_NAME" value="TrieManipulation" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -364,24 +396,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="algorithms2" />
       <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="SeamCarver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="SeamCarver" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -401,26 +422,6 @@
       <option name="PROGRAM_PARAMETERS" />
       <method />
     </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -430,6 +431,25 @@
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -513,381 +533,27 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
-    <configuration default="false" name="SAP - digraph1.txt" type="Application" factoryName="Application" folderName="wordnet">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="SAP" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/wordnet/digraph1.txt" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Outcast - outcast5.txt outcast8.txt outcast11.txt" type="Application" factoryName="Application" folderName="wordnet">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Outcast" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/wordnet/synsets.txt in/wordnet/hypernyms.txt in/wordnet/outcast5.txt in/wordnet/outcast8.txt in/wordnet/outcast11.txt" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Wordnet - synsets.txt hypernyms.txt" type="Application" factoryName="Application" folderName="wordnet">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="WordNet" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/wordnet/synsets.txt in/wordnet/hypernyms.txt" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PrintEnergy - 3x7.png" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="PrintEnergy" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/seamcarving/3x7.png" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PrintEnergy - 6x5.png" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="PrintEnergy" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/seamcarving/6x5.png" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PrintSeams - 3x7.png" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="PrintSeams" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/seamcarving/3x7.png" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PrintSeams - 4x6.png" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="PrintSeams" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/seamcarving/4x6.png" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PrintSeams - 5x6.png" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="PrintSeams" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/seamcarving/5x6.png" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PrintSeams - 6x5.png" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="PrintSeams" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/seamcarving/6x5.png" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PrintSeams - 7x3.png" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="PrintSeams" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/seamcarving/7x3.png" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PrintSeams - 10x12.png" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="PrintSeams" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/seamcarving/10x12.png" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PrintSeams - 12x10.png" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="PrintSeams" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/seamcarving/12x10.png" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PrintSeams - HJocean.png" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="PrintSeams" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/seamcarving/HJocean.png" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PrintSeams - HJoceanTransposed.png" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="PrintSeams" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/seamcarving/HJoceanTransposed.png" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Resize" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="ResizeDemo" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/seamcarving/6x5.png  2 2" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Resize HJocean.png" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="ResizeDemo" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="in/seamcarving/HJocean.png  150 0" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="algorithms2" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <list size="18">
+    <list size="16">
       <item index="0" class="java.lang.String" itemvalue="Application.SAP - digraph1.txt" />
       <item index="1" class="java.lang.String" itemvalue="Application.Outcast - outcast5.txt outcast8.txt outcast11.txt" />
       <item index="2" class="java.lang.String" itemvalue="Application.Wordnet - synsets.txt hypernyms.txt" />
-      <item index="3" class="java.lang.String" itemvalue="Application.PrintEnergy - 3x7.png" />
-      <item index="4" class="java.lang.String" itemvalue="Application.PrintEnergy - 6x5.png" />
-      <item index="5" class="java.lang.String" itemvalue="Application.PrintSeams - 3x7.png" />
-      <item index="6" class="java.lang.String" itemvalue="Application.PrintSeams - 4x6.png" />
-      <item index="7" class="java.lang.String" itemvalue="Application.PrintSeams - 5x6.png" />
-      <item index="8" class="java.lang.String" itemvalue="Application.PrintSeams - 6x5.png" />
-      <item index="9" class="java.lang.String" itemvalue="Application.PrintSeams - 7x3.png" />
-      <item index="10" class="java.lang.String" itemvalue="Application.PrintSeams - 10x12.png" />
-      <item index="11" class="java.lang.String" itemvalue="Application.PrintSeams - 12x10.png" />
-      <item index="12" class="java.lang.String" itemvalue="Application.PrintSeams - HJocean.png" />
-      <item index="13" class="java.lang.String" itemvalue="Application.PrintSeams - HJoceanTransposed.png" />
-      <item index="14" class="java.lang.String" itemvalue="Application.Resize" />
-      <item index="15" class="java.lang.String" itemvalue="Application.Resize HJocean.png" />
-      <item index="16" class="java.lang.String" itemvalue="Application.MatrixUtils" />
-      <item index="17" class="java.lang.String" itemvalue="Application.SeamCarver" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Boggle Solver - board4x4/dictionary-algs4" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Boggle Solver - board-q/dictionary-algs4" />
+      <item index="5" class="java.lang.String" itemvalue="Application.Boggle Solver - board-points26539/dictionary-algs4" />
+      <item index="6" class="java.lang.String" itemvalue="Application.PrintEnergy - 3x7.png" />
+      <item index="7" class="java.lang.String" itemvalue="Application.PrintSeams - 12x10.png" />
+      <item index="8" class="java.lang.String" itemvalue="Application.PrintEnergy - 6x5.png" />
+      <item index="9" class="java.lang.String" itemvalue="Application.PrintSeams - 6x5.png" />
+      <item index="10" class="java.lang.String" itemvalue="Application.PrintSeams - 3x7.png" />
+      <item index="11" class="java.lang.String" itemvalue="Application.PrintSeams - 5x6.png" />
+      <item index="12" class="java.lang.String" itemvalue="Application.PrintSeams - 10x12.png" />
+      <item index="13" class="java.lang.String" itemvalue="Application.PrintSeams - 7x3.png" />
+      <item index="14" class="java.lang.String" itemvalue="Application.PrintSeams - HJocean.png" />
+      <item index="15" class="java.lang.String" itemvalue="Application.TrieManipulation" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.SeamCarver" />
-        <item index="1" class="java.lang.String" itemvalue="Application.MatrixUtils" />
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.TrieManipulation" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -921,13 +587,18 @@
       <workItem from="1386089265077" duration="6560000" />
       <workItem from="1386258838907" duration="31686000" />
       <workItem from="1386621959329" duration="5648000" />
-      <workItem from="1386775951692" duration="31460000" />
-      <workItem from="1386905544583" duration="127000" />
-      <workItem from="1386907926373" duration="1952000" />
-      <workItem from="1386953676444" duration="3413000" />
-      <workItem from="1386972210663" duration="36608000" />
-      <workItem from="1387240899857" duration="30983000" />
-      <workItem from="1387574767865" duration="12419000" />
+      <workItem from="1386775951692" duration="32683000" />
+      <workItem from="1386907674381" duration="68000" />
+      <workItem from="1388677183727" duration="1367000" />
+      <workItem from="1388695173744" duration="16000" />
+      <workItem from="1388695293453" duration="4000000" />
+      <workItem from="1389023767042" duration="16000" />
+      <workItem from="1389023818176" duration="25304000" />
+      <workItem from="1389125129743" duration="25686000" />
+      <workItem from="1389279253736" duration="11360000" />
+      <workItem from="1389365805131" duration="360000" />
+      <workItem from="1389366182080" duration="12259000" />
+      <workItem from="1389632185641" duration="27175000" />
     </task>
     <task id="LOCAL-00001" summary="Adding checkstyle configuration used to score assignments.">
       <created>1385156572980</created>
@@ -953,23 +624,53 @@
       <created>1386877277659</created>
       <updated>1386877277659</updated>
     </task>
-    <task id="LOCAL-00007" summary="Finished initial version of findHorizontalSeam.&#10;Implemented CheckStyle recommendations.&#10;Implemented input check for illegal arguments for energy, removeHorizontalSeam and removeVerticalSeam.">
-      <created>1387561568391</created>
-      <updated>1387561568391</updated>
+    <task id="LOCAL-00007" summary="Workspace changes.">
+      <created>1386883441719</created>
+      <updated>1386883441719</updated>
     </task>
-    <task id="LOCAL-00008" summary="Uncommented printing HorizontalSeams.">
-      <created>1387561714350</created>
-      <updated>1387561714350</updated>
+    <task id="LOCAL-00008" summary="Third cut of findVerticalSeams functionality. Works for all test cases except one.">
+      <created>1386883488627</created>
+      <updated>1386883488627</updated>
     </task>
-    <task id="LOCAL-00009" summary="Minor code cleanup. Ensure picture is updated when removing seams both horizontally or vertically.">
-      <created>1387587509379</created>
-      <updated>1387587509379</updated>
+    <task id="LOCAL-00009" summary="Moved seam finding to seperate class.">
+      <created>1386907723473</created>
+      <updated>1386907723473</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Only add valid words that are equal to or longer than length 3. Some fixes for board traversal but still doesn't find all possible word combinations.&#10;">
+      <created>1389045810976</created>
+      <updated>1389045810976</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fix for back tracking logic but some positions on the board are not being correctly updated as free after use.">
+      <created>1389214712404</created>
+      <updated>1389214712404</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Finished implementation for words minus Qu.">
+      <created>1389643068400</created>
+      <updated>1389643068400</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Formatting and code style fixes.">
+      <created>1389714880239</created>
+      <updated>1389714880240</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Programming Assignment 4 - Boggle">
+      <changelist id="2427e7cc-da19-4c26-a7d7-e46a331fd710" name="Programming Assignment 4 - Boggle" comment="" />
+      <created>1389715011691</created>
+      <updated>1389715011691</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Separated run configuration from workspace file.">
+      <created>1389715072706</created>
+      <updated>1389715072706</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Slight optimization and moved removing item from current word to method.">
+      <created>1389736138201</created>
+      <updated>1389736138201</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <option name="trackContextForNewChangelist" value="true" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160856000" />
+    <option name="totallyTimeSpent" value="184188000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -992,29 +693,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="57" y="31" width="1623" height="1010" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="916" height="1394" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37908497" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.370751" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909784" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885376" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48366013" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32841614" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278867" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24984187" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4458498" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33438736" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983682" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885376" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20809615" sideWeight="0.6199552" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43028322" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2902098" sideWeight="0.67150927" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31383398" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="992" y="92" width="1256" height="716" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290398" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1045,17 +746,21 @@
     <MESSAGE value="Initial version of finding shortest vertical path." />
     <MESSAGE value="Second cut of findVerticalSeams functionality. Works for several of the test cases." />
     <MESSAGE value="Moved output files to correct directory." />
-    <MESSAGE value="Finished initial version of findHorizontalSeam.&#10;Implemented CheckStyle recommendations.&#10;Implemented input check for illegal arguments for energy, removeHorizontalSeam and removeVerticalSeam." />
-    <MESSAGE value="Uncommented printing HorizontalSeams." />
-    <MESSAGE value="Minor code cleanup. Ensure picture is updated when removing seams both horizontally or vertically." />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor code cleanup. Ensure picture is updated when removing seams both horizontally or vertically." />
+    <MESSAGE value="Workspace changes." />
+    <MESSAGE value="Third cut of findVerticalSeams functionality. Works for all test cases except one." />
+    <MESSAGE value="Moved seam finding to seperate class." />
+    <MESSAGE value="Only add valid words that are equal to or longer than length 3. Some fixes for board traversal but still doesn't find all possible word combinations.&#10;" />
+    <MESSAGE value="Fix for back tracking logic but some positions on the board are not being correctly updated as free after use." />
+    <MESSAGE value="Finished implementation for words minus Qu." />
+    <MESSAGE value="Formatting and code style fixes." />
+    <MESSAGE value="Separated run configuration from workspace file." />
+    <MESSAGE value="Slight optimization and moved removing item from current word to method." />
+    <option name="LAST_COMMIT_MESSAGE" value="Slight optimization and moved removing item from current word to method." />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints-dialog>
-        <breakpoints-dialog />
-      </breakpoints-dialog>
-    </breakpoint-manager>
+    <breakpoint-manager />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1064,233 +769,328 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/PixelSP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="40" selection-start="1587" selection-end="1587" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2745">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SeamCarver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="26" selection-start="4918" selection-end="4918" vertical-scroll-proportion="0.0" vertical-offset="2250" max-vertical-offset="2340">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PixelSP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="0" selection-start="7916" selection-end="7916" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3540">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/6x5.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="390" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/5x6.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="202" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="420" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/algs4.jar!/Topological.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="53" selection-start="2825" selection-end="2840" vertical-scroll-proportion="0.0" vertical-offset="1140" max-vertical-offset="1815" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/12x10.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="70" selection-start="1830" selection-end="1835" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="540">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/10x12.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="48" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="600" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/3x7.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="36" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="450">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PrintSeams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="623" selection-end="623" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1305">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SeamCarver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="16" selection-start="1485" selection-end="1489" vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1680">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/4x6.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/algs4.jar!/AcyclicSP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="43" selection-start="2579" selection-end="2579" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="21" selection-start="629" selection-end="629" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/algs4.jar!/Topological.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="53" selection-start="2825" selection-end="2840" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/checkstyle-idea.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="30" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/algs4.jar!/MinPQ.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="31" selection-start="2009" selection-end="2015" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/5x6.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="202" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/6x5.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390" />
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="13" selection-start="4129" selection-end="4129" vertical-scroll-proportion="-4.241667" vertical-offset="3715" max-vertical-offset="17325" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/in/seamcarving/6x5.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/in/seamcarving/3x7.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/awt/Color.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="61" selection-start="2149" selection-end="2157" vertical-scroll-proportion="0.35803878" vertical-offset="436" max-vertical-offset="1785" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/stdlib.jar!/Picture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="223" column="0" selection-start="7558" selection-end="7558" vertical-scroll-proportion="0.15842697" vertical-offset="2694" max-vertical-offset="4035">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/in/seamcarving/HJocean.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/src.zip!/java/lang/System.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="490" column="109" selection-start="19411" selection-end="19411" vertical-scroll-proportion="0.44382024" vertical-offset="6340" max-vertical-offset="17640">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/10x12.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="48" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.30337077" vertical-offset="0" max-vertical-offset="890" />
+        <state line="27" column="30" selection-start="571" selection-end="579" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="3077" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ResizeDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="149" selection-start="691" selection-end="691" vertical-scroll-proportion="0.252809" vertical-offset="0" max-vertical-offset="890">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PrintEnergy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="19" selection-start="538" selection-end="1054" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PrintSeams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="624" selection-end="624" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1335">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/3x7.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="36" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/4x6.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/7x3.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/12x10.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="70" selection-start="1830" selection-end="1835" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="540">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/HJocean.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="12" selection-start="48475" selection-end="48475" vertical-scroll-proportion="248.44" vertical-offset="6346" max-vertical-offset="13200">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/HJoceanTransposed.printseams.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1540" column="23" selection-start="5965881" selection-end="5965881" vertical-scroll-proportion="-10.16" vertical-offset="22846" max-vertical-offset="23280">
-          <folding />
-        </state>
+        <state line="12" column="65" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="952" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PixelSP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="14" selection-start="4636" selection-end="4636" vertical-scroll-proportion="0.0" vertical-offset="1590" max-vertical-offset="2715">
+        <state line="27" column="30" selection-start="571" selection-end="579" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="3077" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ResizeDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="65" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="952" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/6x5.printseams.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="29" selection-start="678" selection-end="678" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/checkstyle-idea.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="30" selection-start="387" selection-end="387" vertical-scroll-proportion="0.17871222" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/algs4.jar!/AcyclicSP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="16" selection-start="2805" selection-end="2805" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/baseball/teams4a.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="39" selection-start="98" selection-end="98" vertical-scroll-proportion="0.072587535" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/12x10.printseams.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="82" selection-start="1847" selection-end="1847" vertical-scroll-proportion="0.30829015" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/algs4.jar!/Topological.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="53" selection-start="2825" selection-end="2840" vertical-scroll-proportion="0.33708838" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/5x6.printseams.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="45" selection-start="679" selection-end="679" vertical-scroll-proportion="0.24244967" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="54" selection-start="719" selection-end="719" vertical-scroll-proportion="0.014418999" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/7x3.printseams.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="536" selection-end="536" vertical-scroll-proportion="0.22818792" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/baseball/teams5a.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/10x12.printseams.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="83" selection-start="790" selection-end="790" vertical-scroll-proportion="0.1275" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/3x7.printseams.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="36" selection-start="323" selection-end="323" vertical-scroll-proportion="0.16817807" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PrintSeams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="0" selection-start="2365" selection-end="2365" vertical-scroll-proportion="0.75404257" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BaseballElimination.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="254" selection-end="254" vertical-scroll-proportion="0.023545707" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Java/jdk1.6.0_32/src.zip!/java/util/LinkedHashSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="65" selection-start="3550" selection-end="3550" vertical-scroll-proportion="-0.06849315" vertical-offset="1156" max-vertical-offset="2635" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Java/jdk1.6.0_32/src.zip!/java/util/TreeSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8891">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SeamCarver.java">
+    <entry file="jar://C:/Java/jdk1.6.0_32/src.zip!/java/util/HashSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="22" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.3529412" vertical-offset="549" max-vertical-offset="2565">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="3791" max-vertical-offset="5032" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ResizeDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="11" selection-start="276" selection-end="276" vertical-scroll-proportion="0.055374593" vertical-offset="0" max-vertical-offset="1228" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PixelSP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="30" selection-start="571" selection-end="579" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BoggleGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="13" selection-start="1531" selection-end="1531" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="15912">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BoggleBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="6" selection-start="1869" selection-end="1869" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3791">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/deployment.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="749">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Java/jdk1.6.0_32/src.zip!/java/lang/StringBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="254" column="16" selection-start="8191" selection-end="8197" vertical-scroll-proportion="0.0" vertical-offset="3960" max-vertical-offset="7871">
+          <folding>
+            <element signature="e#0#14071#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/board-q.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="46" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Java/jdk1.6.0_32/src.zip!/java/lang/Number.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="22" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0" vertical-offset="169" max-vertical-offset="1632">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Java/jdk1.6.0_32/src.zip!/java/lang/Double.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="19" selection-start="964" selection-end="964" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="16150">
+          <folding>
+            <element signature="e#0#38813#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Java/jdk1.6.0_32/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="52" selection-start="1421" selection-end="1425" vertical-scroll-proportion="0.66460395" vertical-offset="126" max-vertical-offset="20451">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TrieManipulation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="18" selection-start="1493" selection-end="1493" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/algs4.jar!/TrieST.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="28" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2703">
+          <folding>
+            <element signature="e#2662#2670#0" expanded="false" />
+            <element signature="e#3113#3121#0" expanded="false" />
+            <element signature="e#4272#4281#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/board-points400.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1197">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/board-points26539.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1197">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-2letters.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="0" selection-start="369" selection-end="369" vertical-scroll-proportion="0.0" vertical-offset="1393" max-vertical-offset="2193">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-algs4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6013" column="0" selection-start="51906" selection-end="51906" vertical-scroll-proportion="0.0" vertical-offset="101523" max-vertical-offset="102323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-common.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20068" column="0" selection-start="167862" selection-end="167862" vertical-scroll-proportion="0.0" vertical-offset="340458" max-vertical-offset="341258">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-enable2k.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="173528" column="0" selection-start="1749989" selection-end="1749989" vertical-scroll-proportion="0.0" vertical-offset="2949278" max-vertical-offset="2950078">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-nursery.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1647" column="0" selection-start="10495" selection-end="10495" vertical-scroll-proportion="0.0" vertical-offset="27301" max-vertical-offset="28101">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-shakespeare.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23688" column="0" selection-start="193050" selection-end="193050" vertical-scroll-proportion="0.0" vertical-offset="401998" max-vertical-offset="402798">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-sowpods.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="267751" column="0" selection-start="2707014" selection-end="2707014" vertical-scroll-proportion="-26.08" vertical-offset="4551115" max-vertical-offset="4551869">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-twl06.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="178691" column="0" selection-start="1763167" selection-end="1763167" vertical-scroll-proportion="0.0" vertical-offset="3037070" max-vertical-offset="3037849">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-yawl.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="264061" column="0" selection-start="2721582" selection-end="2721582" vertical-scroll-proportion="-26.08" vertical-offset="4488385" max-vertical-offset="4489139">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/dictionary-zingarelli2005.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="584983" column="0" selection-start="6704049" selection-end="6704049" vertical-scroll-proportion="-26.92" vertical-offset="9944038" max-vertical-offset="9944813">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/board0x4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/board4x0.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/board4x4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/board-aqua.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/boggle/board-antidisestablishmentarianisms.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="821">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BoggleSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="37" selection-start="2003" selection-end="2003" vertical-scroll-proportion="0.18443803" vertical-offset="892" max-vertical-offset="3842">
+          <folding>
+            <element signature="method#Position#1;class#Position#0;class#BoggleSolver#0" expanded="false" />
+            <element signature="e#1764#1774#0" expanded="true" />
+            <element signature="e#1835#1845#0" expanded="true" />
+            <element signature="e#5683#5693#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1334,7 +1134,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.7</last-edited>
+          <last-edited>1.6</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1351,7 +1151,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
