@@ -71,31 +71,29 @@ public class BoggleSolver {
                     if (shouldRemoveLetter) {
                         int levelDiff = currentLevel - next.level;
                         for (int i = 1; i <= levelDiff; i++) {
-                            word.deleteCharAt(word.length() - 1);
-                            Position historyPosition = history.pop();
-                            marked[historyPosition.x][historyPosition.y] = false;
+                            removeLastLetterFromWord(marked, word, history);
                         }
                         currentLevel = currentLevel - levelDiff;
                     }
 
                     history.push(next);
-                    marked[next.x][next.y] = true;
-                    word.append(board.getLetter(next.x, next.y));
+                    addLetterToWord(board, marked, word, next);
 
                     //not a word and not a prefix
-                    if (!(trie.keysWithPrefix(word.toString()).iterator().hasNext()) && trie.get(word.toString()) == null) {
-                        removeLastLetterFromWord(marked, word, history, next);
+                    Iterator<String> keysWithPrefixIterator = trie.keysWithPrefix(word.toString()).iterator();
+                    if (!(keysWithPrefixIterator.hasNext()) && trie.get(word.toString()) == null) {
+                        removeLastLetterFromWord(marked, word, history);
                     } //word but not a prefix
-                    else if (!trie.keysWithPrefix(word.toString()).iterator().hasNext() && trie.get(word.toString()) != null) {
+                    else if (!keysWithPrefixIterator.hasNext() && trie.get(word.toString()) != null) {
                         addWordToValidWordList(word.toString());
-                        removeLastLetterFromWord(marked, word, history, next);
+                        removeLastLetterFromWord(marked, word, history);
                     } //is a prefix, is a word
-                    else if (trie.keysWithPrefix(word.toString()).iterator().hasNext() && trie.get(word.toString()) != null) {
+                    else if (keysWithPrefixIterator.hasNext() && trie.get(word.toString()) != null) {
                         addWordToValidWordList(word.toString());
                         currentLevel++;
                         addNextPositionsToStack(board, marked, nextPositions, next, currentLevel);
                     } //is a prefix but not a word
-                    else if (trie.keysWithPrefix(word.toString()).iterator().hasNext() && trie.get(word.toString()) == null) {
+                    else if (keysWithPrefixIterator.hasNext() && trie.get(word.toString()) == null) {
                         currentLevel++;
                         addNextPositionsToStack(board, marked, nextPositions, next, currentLevel);
                     }
@@ -106,10 +104,24 @@ public class BoggleSolver {
         return validWords;
     }
 
-    private void removeLastLetterFromWord(boolean[][] marked, StringBuilder word, Stack<Position> history, Position current) {
-        word.deleteCharAt(word.length() - 1);
-        marked[current.x][current.y] = false;
-        history.pop();
+    private void addLetterToWord(BoggleBoard board, boolean[][] marked, StringBuilder word, Position position) {
+        marked[position.x][position.y] = true;
+        char letter = board.getLetter(position.x, position.y);
+        if (letter == 'Q') {
+            word.append("QU");
+        } else {
+            word.append(letter);
+        }
+    }
+
+    private void removeLastLetterFromWord(boolean[][] marked, StringBuilder word, Stack<Position> history) {
+        Position position = history.pop();
+        if (position.letter == 'Q') {
+            word.delete(word.length() - 2, word.length());
+        } else {
+            word.deleteCharAt(word.length() - 1);
+        }
+        marked[position.x][position.y] = false;
     }
 
     private void addWordToValidWordList(String word) {
@@ -200,10 +212,13 @@ public class BoggleSolver {
         BoggleSolver solver = new BoggleSolver(dictionary);
         BoggleBoard board = new BoggleBoard(args[1]);
         int score = 0;
+        long startTime = System.nanoTime();
         for (String word : solver.getAllValidWords(board)) {
             StdOut.println(word);
             score += solver.scoreOf(word);
         }
+        long endTime = System.nanoTime();
+        System.out.println("Current elapsed time (seconds) " + (endTime - startTime) / 1000000000);
         StdOut.println("Score = " + score);
     }
 }
