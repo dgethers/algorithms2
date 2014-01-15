@@ -8,10 +8,10 @@ import java.util.*;
 public class BoggleSolver {
 
     private static class Position {
-        int x;
-        int y;
-        int level;
-        char letter;
+        private int x;
+        private int y;
+        private int level;
+        private char letter;
 
         private Position(int x, int y, int level) {
             this.x = x;
@@ -31,6 +31,7 @@ public class BoggleSolver {
         }
     }
 
+    private Map<String, Iterable<String>> cache;
     private final TrieST<Integer> trie;
     private final Set<String> validWords;
 
@@ -46,7 +47,19 @@ public class BoggleSolver {
         }
 
         validWords = new TreeSet<String>();
+        cache = new HashMap<String, Iterable<String>>();
     }
+
+    private Iterable<String> getCacheEntryForWord(String word) {
+        if (cache.containsKey(word)) {
+            return cache.get(word);
+        } else {
+            Iterable<String> keys = trie.keysWithPrefix(word);
+            cache.put(word, keys);
+            return keys;
+        }
+    }
+
 
     // Returns the set of all valid words in the given Boggle board, as an Iterable.
     public Iterable<String> getAllValidWords(BoggleBoard board) {
@@ -80,7 +93,7 @@ public class BoggleSolver {
                     addLetterToWord(board, marked, word, next);
 
                     //not a word and not a prefix
-                    Iterator<String> keysWithPrefixIterator = trie.keysWithPrefix(word.toString()).iterator();
+                    Iterator<String> keysWithPrefixIterator = getCacheEntryForWord(word.toString()).iterator();
                     if (!(keysWithPrefixIterator.hasNext()) && trie.get(word.toString()) == null) {
                         removeLastLetterFromWord(marked, word, history);
                     } //word but not a prefix
@@ -209,7 +222,9 @@ public class BoggleSolver {
     public static void main(String[] args) {
         In in = new In(args[0]);
         String[] dictionary = in.readAllStrings();
+        System.out.println("Read all words in dictionary into string array");
         BoggleSolver solver = new BoggleSolver(dictionary);
+        System.out.println("Created BoggleSolver/Trie objects");
         BoggleBoard board = new BoggleBoard(args[1]);
         int score = 0;
         long startTime = System.nanoTime();
@@ -220,5 +235,16 @@ public class BoggleSolver {
         long endTime = System.nanoTime();
         System.out.println("Current elapsed time (seconds) " + (endTime - startTime) / 1000000000);
         StdOut.println("Score = " + score);
+
+        /*
+            board-points26539
+            27 seconds without caching
+            13 seconds with caching
+
+            board-points13464
+            17 seconds without caching
+            12 seconds with caching
+
+         */
     }
 }
