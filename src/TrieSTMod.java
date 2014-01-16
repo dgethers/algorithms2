@@ -1,23 +1,3 @@
-/**
- * **********************************************************************
- * Compilation:  javac TrieST.java
- * Execution:    java TrieST < words.txt
- * Dependencies: StdIn.java
- * <p/>
- * A string symbol table for ASCII strings, implemented using a 256-way trie.
- * <p/>
- * % java TrieST < shellsST.txt
- * by 4
- * sea 6
- * sells 1
- * she 0
- * shells 3
- * shore 7
- * the 5
- * <p/>
- * ***********************************************************************
- */
-
 public class TrieSTMod<Value> {
     private static final int R = 27;        // extended ASCII
 
