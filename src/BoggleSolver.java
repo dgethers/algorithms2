@@ -1,4 +1,11 @@
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * User: outzider
@@ -32,14 +39,14 @@ public class BoggleSolver {
     }
 
     private Map<String, Iterable<String>> cache;
-    private final TrieST<Integer> trie;
+    private final TrieSTMod<Integer> trie;
     private final Set<String> validWords;
 
     // Initializes the data structure using the given array of strings as the dictionary.
     // (You can assume each word in the dictionary contains only the uppercase letters A through Z.)
     public BoggleSolver(String[] dictionary) {
         Set<String> dict = new TreeSet<String>(Arrays.asList(dictionary));
-        trie = new TrieST<Integer>();
+        trie = new TrieSTMod<Integer>();
 
         int value = 0;
         for (String word : dict) {
@@ -222,9 +229,7 @@ public class BoggleSolver {
     public static void main(String[] args) {
         In in = new In(args[0]);
         String[] dictionary = in.readAllStrings();
-        System.out.println("Read all words in dictionary into string array");
         BoggleSolver solver = new BoggleSolver(dictionary);
-        System.out.println("Created BoggleSolver/Trie objects");
         BoggleBoard board = new BoggleBoard(args[1]);
         int score = 0;
         long startTime = System.nanoTime();
@@ -235,16 +240,5 @@ public class BoggleSolver {
         long endTime = System.nanoTime();
         System.out.println("Current elapsed time (seconds) " + (endTime - startTime) / 1000000000);
         StdOut.println("Score = " + score);
-
-        /*
-            board-points26539
-            27 seconds without caching
-            13 seconds with caching
-
-            board-points13464
-            17 seconds without caching
-            12 seconds with caching
-
-         */
     }
 }
